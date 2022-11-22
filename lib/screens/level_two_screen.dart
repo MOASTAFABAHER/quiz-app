@@ -3,13 +3,16 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/levels_data.dart';
+import 'package:quizapplication/screens/home_screen.dart';
+import 'package:quizapplication/utils/app_navigator.dart';
 
 import '../classes/all_collors.dart';
 import '../components/custom_text.dart';
 import '../components/one_button.dart';
 
 class LevelTwoScreen extends StatefulWidget {
-  const LevelTwoScreen({super.key});
+  double gradeLeveOne;
+  LevelTwoScreen({required this.gradeLeveOne});
 
   @override
   State<LevelTwoScreen> createState() => _LevelTwoScreenState();
@@ -21,7 +24,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
   int counterB = 0;
   int counterC = 0;
   int counterD = 0;
-  int grade = 0;
+  double grade = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,13 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
         backgroundColor: Colors.blueAccent.withOpacity(0),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(
+            AppNavigator.appNavigator(
               context,
+              HomeScreen(
+                gradeLevelTwo: grade,
+                gradeLevelOne: widget.gradeLeveOne,
+              ),
+              isFinished: true,
             );
           },
           icon: const Icon(
@@ -65,6 +73,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 20.h,
                   ),
                   OneButton(
+                      letter: 'A',
                       function: () {
                         setState(() {
                           if (levelTwoData['AnswerA${counterA}IsTrue'] ==
@@ -87,6 +96,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      letter: 'B',
                       function: () {
                         setState(() {
                           if (levelTwoData['AnswerB${counterB}IsTrue'] ==
@@ -110,6 +120,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      letter: 'C',
                       function: () {
                         setState(() {
                           if (levelTwoData['AnswerC${counterC}IsTrue'] ==
@@ -135,6 +146,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      letter: 'D',
                       function: () {
                         setState(() {
                           if (levelTwoData['AnswerD${counterD}IsTrue'] ==

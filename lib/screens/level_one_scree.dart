@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/levels_data.dart';
 import 'package:quizapplication/components/one_button.dart';
+import 'package:quizapplication/screens/home_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
 
 import '../classes/all_collors.dart';
@@ -22,7 +23,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
   int counterB = 0;
   int counterC = 0;
   int counterD = 0;
-  int grade = 0;
+  double grade = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +32,12 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
         backgroundColor: Colors.blueAccent.withOpacity(0),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(
-              context,
-            );
+            AppNavigator.appNavigator(
+                context,
+                HomeScreen(
+                  gradeLevelOne: grade,
+                ),
+                isFinished: true);
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -64,7 +68,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  OneButton(
+                  OneButton(letter: 'A',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerA${counterA}IsTrue'] ==
@@ -87,7 +91,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(
+                  OneButton(letter: 'B',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerB${counterB}IsTrue'] ==
@@ -109,7 +113,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(
+                  OneButton(letter: 'C',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerC${counterC}IsTrue'] ==
@@ -133,7 +137,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(
+                  OneButton(letter: 'D',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerD${counterD}IsTrue'] ==

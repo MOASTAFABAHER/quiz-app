@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/all_collors.dart';
 
 import 'custom_text.dart';
@@ -9,6 +10,7 @@ import 'custom_text.dart';
 class OneButton extends StatefulWidget {
   double width;
   double height;
+  var letter;
   var color;
   var textColor;
   var function;
@@ -17,7 +19,8 @@ class OneButton extends StatefulWidget {
   String data;
 
   OneButton(
-      {required this.data,
+      {this.letter,
+      required this.data,
       required this.width,
       required this.height,
       required this.color,
@@ -43,12 +46,32 @@ class _OneButtonState extends State<OneButton> {
           borderRadius: BorderRadius.circular(10),
           color: widget.color,
         ),
-        child: Center(
-            child: CustomText(
-          data: widget.data,
-          fontSize: widget.fontSize,
-          color: AllColors.text,
-        )),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              widget.letter != null
+                  ? CircleAvatar(
+                      backgroundColor: AllColors.backgroundColor,
+                      child: CustomText(
+                        data: widget.letter,
+                      ),
+                    )
+                  : SizedBox(
+                      width: 50.w,
+                    ),
+              SizedBox(
+                width: 30.w,
+              ),
+              Center(
+                  child: CustomText(
+                data: widget.data,
+                fontSize: widget.fontSize,
+                color: AllColors.text,
+              )),
+            ],
+          ),
+        ),
       ),
     );
   }

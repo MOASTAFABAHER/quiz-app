@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:quizapplication/classes/all_collors.dart';
+import 'package:quizapplication/components/custom-grid-view.dart';
+import 'package:quizapplication/components/hexagonshape.dart';
 import 'package:quizapplication/screens/level_one_scree.dart';
 import 'package:quizapplication/screens/level_two_screen.dart';
+import 'package:quizapplication/screens/wellcome_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
-
-import '../components/container_of_level.dart';
 import '../components/custom_text.dart';
 import '../config/toaster_config.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  double? gradeLevelOne = 0;
+  double? gradeLevelTwo = 1;
+
+  HomeScreen({this.gradeLevelOne, this.gradeLevelTwo});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +25,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.blueAccent.withOpacity(0),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(
-              context,
-            );
+            AppNavigator.appNavigator(context, WellcomeScreen());
           },
           icon: Icon(
             Icons.arrow_back,
@@ -38,79 +40,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: AllColors.backgroundColor,
-      body: GridView(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        children: [
-          ContainerOfLevels(
-            color: Colors.deepOrange,
-            text: 'levelOne',
-            onPressed: () {
-              AppNavigator.appNavigator(context, LevelOneScreen());
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.grey,
-            text: 'LevelTwo',
-            onPressed: () {
-              AppNavigator.appNavigator(context, LevelTwoScreen());
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.pink,
-            text: 'LevelThree',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.yellow,
-            text: 'LevelFour',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.deepOrange,
-            text: 'LevelFive',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.grey,
-            text: 'LevelSix',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.pink,
-            text: 'levelSeven',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          ),
-          ContainerOfLevels(
-            color: Colors.yellow,
-            text: 'levelEight',
-            onPressed: () {
-              ToastConfig.showToast(
-                  msg: 'cannot open this page right now',
-                  toastStates: ToastStates.Warning);
-            },
-          )
-        ],
+      body: CustomGriView(
+        gradeLevelOne: gradeLevelOne == null ? 0 : gradeLevelOne!,
+        gradelevelTwo: gradeLevelTwo == null ? 0 : gradeLevelTwo!,
       ),
     );
   }

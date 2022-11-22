@@ -56,7 +56,12 @@ class WellcomeScreen extends StatelessWidget {
               ),
               OneButton(
                   function: () {
-                    AppNavigator.appNavigator(context, HomeScreen());
+                    AppNavigator.appNavigator(
+                        context,
+                        HomeScreen(
+                          gradeLevelOne: 0,
+                          gradeLevelTwo: 0,
+                        ));
                   },
                   fontSize: 18.sp,
                   data: 'Go',
