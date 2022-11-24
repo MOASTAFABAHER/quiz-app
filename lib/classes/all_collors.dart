@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AllColors {
-  static var containerSelectedColor = Colors.blue;
+  static var containerSelectedColor = Colors.deepPurple;
   static var containerUnSelected = Colors.blueGrey;
   static var text = Colors.grey[500];
   static var backgroundColor = Colors.indigo[800];
@@ -10,4 +10,7 @@ class AllColors {
   static var sucssesToastColor = Colors.green;
   static var errorToastColor = Colors.red;
   static var warningToastColor = Colors.deepOrange;
+  static var whiteColor = Colors.white;
+  static var greenColor = Colors.green;
+  static var yelloColor = Colors.yellow;
 }

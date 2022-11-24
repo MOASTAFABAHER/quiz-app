@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
         title: CustomText(
           data: 'Levels',
           fontWeight: FontWeight.bold,
-          color: Colors.green,
+          color: AllColors.greenColor,
         ),
       ),
       backgroundColor: AllColors.backgroundColor,

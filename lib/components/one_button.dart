@@ -14,12 +14,14 @@ class OneButton extends StatefulWidget {
   var color;
   var textColor;
   var function;
+  var fontWeight;
 
   double? fontSize;
   String data;
 
   OneButton(
       {this.letter,
+      this.fontWeight,
       required this.data,
       required this.width,
       required this.height,
@@ -54,20 +56,22 @@ class _OneButtonState extends State<OneButton> {
                   ? CircleAvatar(
                       backgroundColor: AllColors.backgroundColor,
                       child: CustomText(
+                        color: AllColors.whiteColor,
                         data: widget.letter,
                       ),
                     )
                   : SizedBox(
-                      width: 50.w,
+                      width: 30.w,
                     ),
               SizedBox(
-                width: 30.w,
+                width: 20.w,
               ),
               Center(
                   child: CustomText(
+                fontWeight: widget.fontWeight,
                 data: widget.data,
                 fontSize: widget.fontSize,
-                color: AllColors.text,
+                color: AllColors.whiteColor,
               )),
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/levels_data.dart';
+import 'package:quizapplication/components/grade-view.dart';
 import 'package:quizapplication/screens/home_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
 
@@ -49,20 +50,21 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
           ),
         ),
         centerTitle: true,
-        title: CustomText(
-          data: 'level Two ',
-          fontWeight: FontWeight.bold,
-          color: Colors.green,
-        ),
+        title: questionCounter != 6
+            ? CustomText(
+                data: 'level Two ',
+                fontWeight: FontWeight.bold,
+                color: AllColors.greenColor,
+              )
+            : CustomText(
+                data: 'Results',
+                color: AllColors.greenColor,
+              ),
       ),
       backgroundColor: AllColors.backgroundColor,
       body: Center(
         child: questionCounter == 6
-            ? CustomText(
-                data: 'your Grade is $grade \\6',
-                fontSize: 18.sp,
-                color: AllColors.text,
-              )
+            ? Gradview(grade: grade)
             : Column(
                 children: [
                   CustomText(

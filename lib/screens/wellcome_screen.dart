@@ -32,15 +32,16 @@ class WellcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
-                data: 'Quizzlezz',
+                data: 'Quizzles',
                 fontSize: 22.sp,
-                color: AllColors.text,
+                color: AllColors.whiteColor,
                 fontWeight: FontWeight.bold,
               ),
               SizedBox(
                 height: 40.h,
               ),
               OneButton(
+                  fontWeight: FontWeight.bold,
                   fontSize: 18.sp,
                   function: () {
                     ToastConfig.showToast(
@@ -55,6 +56,7 @@ class WellcomeScreen extends StatelessWidget {
                 height: 20.h,
               ),
               OneButton(
+                  fontWeight: FontWeight.bold,
                   function: () {
                     AppNavigator.appNavigator(
                         context,
@@ -64,7 +66,7 @@ class WellcomeScreen extends StatelessWidget {
                         ));
                   },
                   fontSize: 18.sp,
-                  data: 'Go',
+                  data: 'Play Now',
                   width: 200.w,
                   height: 40.h,
                   color: AllColors.containerSelectedColor),

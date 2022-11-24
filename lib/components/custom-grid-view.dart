@@ -23,6 +23,7 @@ class CustomGriView extends StatelessWidget {
       ),
       children: [
         HexagonShapeText(
+          number: '01',
           grade: gradeLevelOne,
           text: 'LevelOne',
           color: Colors.blue,
@@ -31,6 +32,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '02',
           grade: gradelevelTwo,
           text: 'levelTwo',
           color: Colors.deepOrange,
@@ -43,6 +45,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '03',
           grade: 0,
           text: 'Level Three',
           color: Colors.greenAccent,
@@ -53,6 +56,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '04',
           grade: 0,
           text: 'Level Four',
           color: Colors.grey,
@@ -63,6 +67,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '05',
           grade: 0,
           text: 'Level Five',
           color: Colors.red,
@@ -73,6 +78,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '06',
           grade: 0,
           text: 'Level Six',
           color: Colors.lightBlue,
@@ -83,6 +89,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '07',
           grade: 0,
           text: 'Level Seven',
           color: Colors.deepOrangeAccent,
@@ -93,6 +100,7 @@ class CustomGriView extends StatelessWidget {
           },
         ),
         HexagonShapeText(
+          number: '08',
           grade: 0,
           text: 'Level Eight',
           color: Colors.deepPurple,

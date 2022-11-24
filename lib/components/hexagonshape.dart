@@ -6,16 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/all_collors.dart';
 import 'package:quizapplication/components/custom_text.dart';
 
-
 import 'star.dart';
 
 class HexagonShapeText extends StatelessWidget {
   String text;
+  String number;
   var color;
   var function;
   double grade;
   HexagonShapeText(
-      {required this.text,
+      {required this.number,
+      required this.text,
       required this.color,
       this.function,
       required this.grade});
@@ -39,10 +40,25 @@ class HexagonShapeText extends StatelessWidget {
                   rotate: 70,
                 )),
             child: Center(
-                child: CustomText(
-              data: text,
-              fontSize: 20.sp,
-              fontWeight: FontWeight.bold,
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomText(
+                  color: AllColors.whiteColor,
+                  data: text,
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w900,
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                CustomText(
+                  color: AllColors.whiteColor,
+                  data: number,
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w900,
+                ),
+              ],
             )),
           ),
         ],

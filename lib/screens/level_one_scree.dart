@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/levels_data.dart';
+import 'package:quizapplication/components/grade-view.dart';
 import 'package:quizapplication/components/one_button.dart';
 import 'package:quizapplication/screens/home_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
@@ -28,38 +29,38 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.blueAccent.withOpacity(0),
-        leading: IconButton(
-          onPressed: () {
-            AppNavigator.appNavigator(
-                context,
-                HomeScreen(
-                  gradeLevelOne: grade,
-                ),
-                isFinished: true);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.grey,
+          elevation: 0,
+          backgroundColor: Colors.blueAccent.withOpacity(0),
+          leading: IconButton(
+            onPressed: () {
+              AppNavigator.appNavigator(
+                  context,
+                  HomeScreen(
+                    gradeLevelOne: grade,
+                  ),
+                  isFinished: true);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            ),
           ),
-        ),
-        centerTitle: true,
-        title: CustomText(
-          data: 'level One ',
-          fontWeight: FontWeight.bold,
-          color: Colors.green,
-        ),
-      ),
+          centerTitle: true,
+          title: questionCounter != 6
+              ? CustomText(
+                  data: 'level One ',
+                  fontWeight: FontWeight.bold,
+                  color: AllColors.greenColor,
+                )
+              : CustomText(
+                  data: 'Results',
+                  color: AllColors.greenColor,
+                )),
       backgroundColor: AllColors.backgroundColor,
-      body: Center(
-        child: questionCounter == 6
-            ? CustomText(
-                data: 'your Grade is $grade \\6 ',
-                fontSize: 18.sp,
-                color: AllColors.text,
-              )
-            : Column(
+      body: questionCounter == 6
+          ? Gradview(grade: grade)
+          : Center(
+              child: Column(
                 children: [
                   CustomText(
                     data: '${levelOneData['Question${questionCounter}']}',
@@ -68,7 +69,8 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  OneButton(letter: 'A',
+                  OneButton(
+                      letter: 'A',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerA${counterA}IsTrue'] ==
@@ -91,7 +93,8 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(letter: 'B',
+                  OneButton(
+                      letter: 'B',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerB${counterB}IsTrue'] ==
@@ -113,7 +116,8 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(letter: 'C',
+                  OneButton(
+                      letter: 'C',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerC${counterC}IsTrue'] ==
@@ -137,7 +141,8 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  OneButton(letter: 'D',
+                  OneButton(
+                      letter: 'D',
                       function: () {
                         setState(() {
                           if (levelOneData['AnswerD${counterD}IsTrue'] ==
@@ -159,7 +164,7 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                       color: AllColors.answerTextColor),
                 ],
               ),
-      ),
+            ),
     );
   }
 
