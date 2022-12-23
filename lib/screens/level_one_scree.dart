@@ -58,7 +58,11 @@ class _LevelOneScreenState extends State<LevelOneScreen> {
                 )),
       backgroundColor: AllColors.backgroundColor,
       body: questionCounter == 6
-          ? Gradview(grade: grade)
+          ? Gradview(
+              gradeLevelOne: grade,
+              gradeLevelTwo: 0,
+              isLevelOne: true,
+            )
           : Center(
               child: Column(
                 children: [

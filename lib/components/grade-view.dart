@@ -4,14 +4,20 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizapplication/classes/all_collors.dart';
+import 'package:quizapplication/classes/levels_data.dart';
 import 'package:quizapplication/components/custom_text.dart';
 import 'package:quizapplication/components/one_button.dart';
 import 'package:quizapplication/screens/home_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
 
 class Gradview extends StatelessWidget {
-  double grade;
-  Gradview({required this.grade});
+  double gradeLevelOne;
+  double gradeLevelTwo;
+  bool isLevelOne;
+  Gradview(
+      {required this.gradeLevelOne,
+      required this.gradeLevelTwo,
+      required this.isLevelOne});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +35,19 @@ class Gradview extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          CustomText(
-            data: '$grade out of 6 Questions ',
-            color: AllColors.greenColor,
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          isLevelOne == true
+              ? CustomText(
+                  data: '$gradeLevelOne out of 6 Questions ',
+                  color: AllColors.greenColor,
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                )
+              : CustomText(
+                  data: '$gradeLevelTwo out of 6 Questions ',
+                  color: AllColors.greenColor,
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                ),
           SizedBox(
             height: 30.h,
           ),
@@ -62,12 +75,15 @@ class Gradview extends StatelessWidget {
                     height: 10.h,
                   ),
                   CircleAvatar(
-                    backgroundColor: AllColors.yelloColor,
-                    radius: 60,
-                    child: CustomText(
-                      data: '${(grade * 50 / 3).round()} %',
-                    ),
-                  ),
+                      backgroundColor: AllColors.yelloColor,
+                      radius: 60,
+                      child: isLevelOne == true
+                          ? CustomText(
+                              data: '${(gradeLevelOne * 50 / 3).round()} %',
+                            )
+                          : CustomText(
+                              data: '${(gradeLevelTwo * 50 / 3).round()} %',
+                            )),
                 ],
               ),
             ),
@@ -80,7 +96,12 @@ class Gradview extends StatelessWidget {
             children: [
               OneButton(
                   function: () {
-                    AppNavigator.appNavigator(context, HomeScreen(),
+                    AppNavigator.appNavigator(
+                        context,
+                        HomeScreen(
+                          gradeLevelOne: gradeLevelOne,
+                          gradeLevelTwo: gradeLevelTwo,
+                        ),
                         isFinished: true);
                   },
                   fontSize: 18.sp,

@@ -64,7 +64,11 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
       backgroundColor: AllColors.backgroundColor,
       body: Center(
         child: questionCounter == 6
-            ? Gradview(grade: grade)
+            ? Gradview(
+                gradeLevelOne: widget.gradeLeveOne,
+                gradeLevelTwo: grade,
+                isLevelOne: false,
+              )
             : Column(
                 children: [
                   CustomText(
