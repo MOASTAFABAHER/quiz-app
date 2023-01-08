@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import 'package:quizapplication/classes/all_collors.dart';
+import 'package:quizapplication/src/all_collors.dart';
 
 class ToastConfig {
   static showToast({

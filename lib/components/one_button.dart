@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quizapplication/classes/all_collors.dart';
+import 'package:quizapplication/src/all_collors.dart';
 
 import 'custom_text.dart';
 

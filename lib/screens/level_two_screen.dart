@@ -7,7 +7,7 @@ import 'package:quizapplication/components/grade-view.dart';
 import 'package:quizapplication/screens/home_screen.dart';
 import 'package:quizapplication/utils/app_navigator.dart';
 
-import '../classes/all_collors.dart';
+import '../src/all_collors.dart';
 import '../components/custom_text.dart';
 import '../components/one_button.dart';
 
@@ -72,6 +72,7 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
             : Column(
                 children: [
                   CustomText(
+                    fontSize: 20.sp,
                     data: '${levelTwoData['Question${questionCounter}']}',
                     color: AllColors.text,
                   ),
@@ -79,6 +80,8 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 20.h,
                   ),
                   OneButton(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
                       letter: 'A',
                       function: () {
                         setState(() {
@@ -102,6 +105,8 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
                       letter: 'B',
                       function: () {
                         setState(() {
@@ -126,6 +131,8 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
                       letter: 'C',
                       function: () {
                         setState(() {
@@ -152,6 +159,8 @@ class _LevelTwoScreenState extends State<LevelTwoScreen> {
                     height: 10.h,
                   ),
                   OneButton(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
                       letter: 'D',
                       function: () {
                         setState(() {

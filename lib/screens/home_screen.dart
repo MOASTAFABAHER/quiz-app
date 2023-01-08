@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:quizapplication/classes/all_collors.dart';
+import 'package:quizapplication/src/all_collors.dart';
 import 'package:quizapplication/components/custom-grid-view.dart';
 import 'package:quizapplication/components/hexagonshape.dart';
 import 'package:quizapplication/screens/level_one_scree.dart';

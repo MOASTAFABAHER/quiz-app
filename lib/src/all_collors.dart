@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AllColors {
   static var containerSelectedColor = Colors.deepPurple;
   static var containerUnSelected = Colors.blueGrey;
-  static var text = Colors.grey[500];
+  static var text = Colors.white;
   static var backgroundColor = Colors.indigo[800];
   static var questionTextColor = Colors.white;
   static var answerTextColor = Colors.red;
